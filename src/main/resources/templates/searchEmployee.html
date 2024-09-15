@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Search Results</title>
+    <link rel="stylesheet" type="text/css" href="/css/searchstyle.css">
+</head>
+<body>
+<div class="container">
+    <h1>Employee Search Results</h1>
+
+    <!-- Check if there are employees to display -->
+    <div th:if="${employees != null and #lists.size(employees) > 0}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Photo</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Date of Birth</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"></td>
+                <td><img th:src="@{'/img/' + ${employee.photoUrl}}" alt="Employee Photo" class="employee-photo"></td>
+                <td th:text="${employee.fullName}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.mobile}"></td>
+                <td th:text="${employee.dateOfBirth}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Message if no employees are found -->
+    <div th:if="${employees == null or #lists.size(employees) == 0}" class="no-results">
+        <p>No employees found matching your search criteria.</p>
+    </div>
+
+    <!-- Back to search form -->
+    <a href="/Employees" class="back-btn">Back to Search Form</a>
+</div>
+</body>
+</html>

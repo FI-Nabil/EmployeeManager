@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Management System - Employees</title>
+  <!-- Link to CSS in a different directory -->
+  <link rel="stylesheet" href="css/estyles.css">
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <nav class="sidebar">
+    <div class="logo">
+      <h1>HRMS</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/Employees">Employees</a></li>
+      <li><a href="/AddEmployee">Add Employee</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="content">
+
+
+  <!-- Filter/Search Section -->
+  <div class="filter-section">
+    <form action="/searchEmployee" method="GET" style="display: flex; gap: 10px; align-items: center;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Name">
+
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" name="dateOfBirth">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Email">
+
+      <label for="mobile">Mobile:</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="Mobile">
+
+      <button class="search-btn" type="submit"><i class="fas fa-search"></i> Search</button>
+    </form>
+  </div>
+
+
+
+  <h2>Employee List</h2>
+  <!-- Employee Table -->
+  <table class="employee-table">
+    <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Date Of Birth</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    <div>-->
+<!--      <h1 th:text="@{'/img/' + ${employeeList[0].photoUrl}}"></h1>-->
+<!--    </div>-->
+    <tr th:each="employee : ${employeeList}">
+      <td><img th:src="@{'/img/' + ${employee.photoUrl}}" th:alt="${employee.fullName}" class="employee-photo"></td>
+      <td th:text="${employee.fullName}">Full Name</td>
+      <td th:text="${employee.email}">Email</td>
+      <td th:text="${employee.mobile}">Mobile</td>
+      <td th:text="${employee.dateOfBirth}">Date Of Birth</td>
+      <td>
+        <a th:href="@{'/EditEmployee?id=' + ${employee.id}}" class="edit-btn"><i class="fas fa-edit"></i></a>
+        <form action="/deleteEmployee" method="post" style="display:inline;">
+          <input type="hidden" name="id" th:value="${employee.id}">
+          <button class="delete-btn"><i class="fas fa-trash"></i></button>
+        </form>
+      </td>
+    </tr>
+    <!-- Additional rows for other employees -->
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <!-- Previous Page Button -->
+    <a th:href="@{/Employees(page=${currentPage - 1})}" class="prev-page">&laquo;</a>
+
+    <!-- Current Page Number -->
+    <span class="current-page" th:text="${currentPage}"></span>
+
+    <!-- Next Page Button -->
+    <a class="next-page"
+       th:href="@{/Employees(page=${currentPage+1})}">&raquo;</a>
+  </div>
+
+</section>
+
+<footer>
+  <p>&copy; 2024 HR Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
+

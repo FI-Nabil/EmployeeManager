@@ -1,0 +1,175 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar (Left Navigation) */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #4CAF50;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links li {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+    margin-left: 250px; /* Ensures content moves aside for the sidebar */
+    padding: 100px 20px;
+    flex-grow: 1;
+}
+
+/* Employee Table */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.employee-table th, .employee-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.employee-table img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.edit-btn, .delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #45a049;
+}
+
+/* Filter/Search Section */
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-section input {
+    padding: 10px;
+    font-size: 16px;
+    width: 180px;
+}
+
+.search-btn {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background-color: #45a049;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    color: #4CAF50;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px; /* Same padding as Homepage */
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Make it full width */
+    left: 0; /* Start from the left of the viewport */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    footer {
+        width: 100vw; /* Full width for small screens */
+        left: 0;
+    }
+}

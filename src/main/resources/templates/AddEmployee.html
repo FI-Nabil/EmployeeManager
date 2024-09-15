@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management System - Employees</title>
+    <link rel="stylesheet" href="css/estyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>HRMS</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/Employees">Employees</a></li>
+            <li><a href="/AddEmployee">Add Employee</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="content">
+    <h2>Add an Employee</h2>
+
+    <!-- Add employee Section -->
+    <div class="filter-section">
+        <form action="/saveEmployee" method="POST" th:object="${employee}" enctype="multipart/form-data">
+
+            <label for="photo">Photo</label>
+            <input type="file" id="photo"  name="photo" accept="image/*">
+            <br/>
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" th:field="*{fullName}" placeholder="Full Name">
+            <br/>
+
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}">
+            <br/>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" placeholder="Email">
+            <br/>
+
+            <label for="mobile">Mobile:</label>
+            <input type="tel" id="mobile" th:field="*{mobile}" placeholder="Mobile">
+            <br/>
+
+            <button class="search-btn" type="submit">Add Employee</button>
+        </form>
+        <p style="color: green" th:if="${success}" th:text="${success}"></p>
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2024 HR Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

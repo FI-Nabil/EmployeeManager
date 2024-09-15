@@ -1,0 +1,101 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for the content */
+.container {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Employee Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.employee-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .employee-photo {
+        width: 40px;
+        height: 40px;
+    }
+}

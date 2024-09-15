@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Employee - HR Management System</title>
+  <!-- Link to CSS in a different directory -->
+  <link rel="stylesheet" href="css/estyles.css">
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <nav class="sidebar">
+    <div class="logo">
+      <h1>HRMS</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/Employees">Employees</a></li>
+      <li><a href="/AddEmployee">Add Employee</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="content">
+  <h2>Edit Employee</h2>
+
+  <form action="/UpdateEmployee" method="post">
+    <!-- Hidden field to pass the employee ID -->
+    <input type="hidden" name="id" th:value="${originalEmployee.id}">
+
+    <!-- Full Name field -->
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName"
+             th:value="${employee.fullName}"
+             th:placeholder="${originalEmployee.fullName}"
+             placeholder="Enter full name" required>
+    </div>
+
+    <!-- Email field -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"
+             th:value="${employee.email}"
+             th:placeholder="${originalEmployee.email}"
+             placeholder="Enter email">
+    </div>
+
+    <!-- Mobile field -->
+    <div class="form-group">
+      <label for="mobile">Mobile:</label>
+      <input type="tel" id="mobile" name="mobile"
+             th:value="${employee.mobile}"
+             th:placeholder="${originalEmployee.mobile}"
+             placeholder="Enter mobile number">
+    </div>
+
+
+    <!-- Submit Button -->
+    <button class="submit-btn" type="submit">Update Employee</button>
+  </form>
+
+</section>
+
+<footer>
+  <p>&copy; 2024 HR Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
